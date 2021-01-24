@@ -8,3 +8,20 @@ img {
   padding: 10px;
   width: 205px;
 }
+
+.body {
+  background-color: #f4ae72;
+}
+
+.h1, .h3 {
+  color: red;
+  font-family: sans-serif;
+}
+
+#top-melons-img {
+  border: 3px green solid;
+}
+
+#homepage-img {
+  justify-content: center;
+}

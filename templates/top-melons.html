@@ -13,7 +13,7 @@
     {% for key, values in loved_melons_dict.items()%}
       <div><h2>{{ user_name }}{{ loved_melons_dict[key]["name"]}}</h2></div>
       <div>Number of loves: {{ loved_melons_dict[key]["num_loves"]}}</div>
-      <div><img src="{{ loved_melons_dict[key]["img"]}}" alt="Picture of current melon"></div> 
+      <div><img src="{{ loved_melons_dict[key]["img"]}}" alt="Picture of current melon" id="top-melons-img"></div> 
     {% endfor %}
   {% endblock %}
 
