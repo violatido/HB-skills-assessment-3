@@ -15,9 +15,14 @@
   <!-- loop through the keys and values of the dictionary -->
   <!-- *****fix the img display**** -->
   {% for key, values in loved_melons_dict.items()%}
-    <div>{{ loved_melons_dict[key]["name"]}}</div>
-    <div>{{ loved_melons_dict[key]["num_loves"]}}</div>
-    <div>{{ loved_melons_dict[key]["img"]}}</div> 
+    <div><h2>{{ loved_melons_dict[key]["name"]}}</h2></div>
+    <div>Loved {{ loved_melons_dict[key]["num_loves"]}} times</div>
+    <div><img src="{{ loved_melons_dict[key]["img"]}}" alt=""></div> 
   {% endfor %}
 </body>
 </html>
+
+
+<!-- notes for teacher:
+- I remembered the syntax for the for loop, but I forgot the wording for ending the for-loop 
+  - originall I had "endloop", so I went to the ntoes to find my mistake -->
