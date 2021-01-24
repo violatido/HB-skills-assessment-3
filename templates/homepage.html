@@ -1,5 +1,6 @@
 {% extends base.html %}
-    {% block content %}
+{% block content %}
+
         <div class="Header content">
             <h1><i>UberMelons Most Loved Melons</i></h1>
             <img src="http://www.rareseeds.com/assets/1/14/DimThumbnail/Texas-Golden-2-Watermelon-web.jpg"
@@ -8,11 +9,11 @@
         <div class="user-info">
             <form action="/get-name" method="GET">
                 What is your name?
-                <input type="text" name="username" required>
-                <!-- <button type="button" value="submit">submit name</button> -->
+                <input type="text" name="username" required> 
+                <input type="submit">
             </form>
         </div>
-    {% endblock %}
+{% endblock %}
 
 <!-- note for teacher:
 - when the directions said to inclue "an image of a Watermelon", it was not specific which picture
