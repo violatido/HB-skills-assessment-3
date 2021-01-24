@@ -6,10 +6,18 @@
 </head>
 <body>
   <!-- Create a div for every Most Loved Melon using a Jinja for-loop -->
-  <div class="melon-div">
+  <!-- <div class="melon-div">
     <h3>Texas Golden Watermelon</h3>
     <h2>Loved 598 times.</h2>
     <img src="http://www.rareseeds.com/assets/1/14/DimThumbnail/Texas-Golden-2-Watermelon-web.jpg">
-  </div>
+  </div> -->
+  <!-- create a for loop -->
+  <!-- loop through the keys and values of the dictionary -->
+  <!-- *****fix the img display**** -->
+  {% for key, values in loved_melons_dict.items()%}
+    <div>{{ loved_melons_dict[key]["name"]}}</div>
+    <div>{{ loved_melons_dict[key]["num_loves"]}}</div>
+    <div>{{ loved_melons_dict[key]["img"]}}</div> 
+  {% endfor %}
 </body>
 </html>
