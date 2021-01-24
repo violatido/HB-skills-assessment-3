@@ -5,14 +5,14 @@ from jinja2 import StrictUndefined
 
 app = Flask(__name__)
 
-# This option will cause Jinja to throw UndefinedErrors if a value hasn't
-# been defined (so it more closely mimics Python's behavior)
-        # *** what is the value of StrictUndefined ?
+    # This option will cause Jinja to throw UndefinedErrors if a value hasn't
+    # been defined (so it more closely mimics Python's behavior)
+            # *** what is the value of StrictUndefined ?
 app.jinja_env.undefined = StrictUndefined
 
 # This option will cause Jinja to automatically reload templates if they've been
-# changed. This is a resource-intensive operation though, so it should only be
-# set while debugging.
+    # changed. This is a resource-intensive operation though, so it should only be
+    # set while debugging.
 app.jinja_env.auto_reload = True
 
 # Required to use Flask sessions and the debug toolbar
@@ -49,11 +49,16 @@ MOST_LOVED_MELONS = {
 @app.route("/top-melons")
 # create a view function that will render template for top-melons.html
 def view_top_melons():
-    #pass through the html template, the loved melons dictionary
-    return render_template ("top-melons.html", loved_melons_dict=MOST_LOVED_MELONS)
+    if "username" in session:
+        #pass through the html template, the loved melons dictionary
+        return render_template ("top-melons.html", loved_melons_dict=MOST_LOVED_MELONS)
+    else:
+        return redirect("/homepage.html")
 
 @app.route("/")
 def add_username():
+    if "username" in session:
+        return redirect("/top-melons")
     return render_template("homepage.html")
 
 # FIX THE GET
@@ -62,11 +67,11 @@ def get_name():
     # get the username and save to user_name variable
     user_name = request.args.get("username")
 
-    session = {}
+    session["username"] = {}
     #  add the user_name variable to the session
     session["username"] = user_name
     # redirect to top-melons/html
-    return redirect("/top-melons.html")
+    return redirect("/top-melons", user_name=session["username"])
 
 if __name__ == '__main__':
     # We have to set debug=True here, since it has to be True at the
