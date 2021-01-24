@@ -51,7 +51,9 @@ MOST_LOVED_MELONS = {
 def view_top_melons():
     if "username" in session:
         #pass through the html template, the loved melons dictionary
-        return render_template ("top-melons.html", loved_melons_dict=MOST_LOVED_MELONS)
+        return render_template ("top-melons.html", 
+                                username="username", 
+                                loved_melons_dict=MOST_LOVED_MELONS)
     else:
         return redirect("/homepage.html")
 
@@ -63,17 +65,17 @@ def add_username():
         return render_template("homepage.html")
 
 # FIX THE GET
-@app.route("/get-name")
+@app.route("/get-name", methods=["GET"])
 def get_name():
     # get the username and save to user_name variable
-    user_name = request.args.get('username')
+    username = request.args.get('username')
+    # add variable to session
+    session["username"] = username
 
-    session["username"] = {}
-    #  add the user_name variable to the session
-    session["username"] = user_name
-    # redirect to top-melons/html
+    return redirect("/top-melons")
 
-    return redirect("/top-melons", user_name=user_name)
+    
+
 
 
 if __name__ == '__main__':

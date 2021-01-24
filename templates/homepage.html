@@ -1,20 +1,27 @@
-{% extends base.html %}
-{% block content %}
+{% extends 'base.html' %}
 
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/static/styles.css">
+        <title>Top Melons</title>
+    </head>
+    <body>
+    {% block content %}
         <div class="Header content">
             <h1><i>UberMelons Most Loved Melons</i></h1>
-            <img src="http://www.rareseeds.com/assets/1/14/DimThumbnail/Texas-Golden-2-Watermelon-web.jpg"
-                alt="Picture of Texas Golden Watermelon" id="homepage-img">
+            <div id="homepage-img">
+                <img src="http://www.rareseeds.com/assets/1/14/DimThumbnail/Texas-Golden-2-Watermelon-web.jpg"
+                    alt="Picture of Texas Golden Watermelon">
+            </div>
         </div>
         <div class="user-info">
             <form action="/get-name" method="GET">
                 What is your name?
-                <input type="text" name="username" required> 
-                <input type="submit">
+                <input type="text" name="username" required/> 
+                <input type="submit"/>
             </form>
         </div>
-{% endblock %}
-
-<!-- note for teacher:
-- when the directions said to inclue "an image of a Watermelon", it was not specific which picture
-    - I just assumed any picture would be fine, so I took one from the most-loved list -->
+    {% endblock %}
+    </body>
+</html>

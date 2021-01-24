@@ -9,11 +9,11 @@ img {
   width: 205px;
 }
 
-.body {
+body {
   background-color: #f4ae72;
 }
 
-.h1, .h3 {
+h1, h3 {
   color: red;
   font-family: sans-serif;
 }
@@ -23,5 +23,6 @@ img {
 }
 
 #homepage-img {
+  display: flex;
   justify-content: center;
 }
