@@ -52,6 +52,9 @@ def view_top_melons():
     #pass through the html template, the loved melons dictionary
     return render_template ("top-melons.html", loved_melons_dict=MOST_LOVED_MELONS)
 
+@app.route("/")
+def add_username():
+    return render_template("homepage.html")
 
 
 if __name__ == '__main__':
