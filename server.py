@@ -56,6 +56,17 @@ def view_top_melons():
 def add_username():
     return render_template("homepage.html")
 
+# FIX THE GET
+@app.route("/get-name", methods=["GET"])
+def get_name():
+    # get the username and save to user_name variable
+    user_name = request.args.get("username")
+
+    session = {}
+    #  add the user_name variable to the session
+    session["username"] = user_name
+    # redirect to top-melons/html
+    return redirect("/top-melons.html")
 
 if __name__ == '__main__':
     # We have to set debug=True here, since it has to be True at the
