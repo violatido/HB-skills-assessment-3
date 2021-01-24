@@ -7,6 +7,7 @@ app = Flask(__name__)
 
 # This option will cause Jinja to throw UndefinedErrors if a value hasn't
 # been defined (so it more closely mimics Python's behavior)
+        # *** what is the value of StrictUndefined ?
 app.jinja_env.undefined = StrictUndefined
 
 # This option will cause Jinja to automatically reload templates if they've been
@@ -17,6 +18,8 @@ app.jinja_env.auto_reload = True
 # Required to use Flask sessions and the debug toolbar
 app.secret_key = 'ABC'
 
+
+# dictionary containing info about the most-loved melons
 MOST_LOVED_MELONS = {
     'cren': {
         'img': 'http://www.rareseeds.com/assets/1/14/DimRegular/crenshaw.jpg',
@@ -42,6 +45,13 @@ MOST_LOVED_MELONS = {
 
 
 # REPLACE THIS WITH YOUR ROUTES
+# write a route for "top-melons"
+@app.route("/top-melons")
+# create a view function that will render template for top-melons.html
+def view_top_melons():
+    #pass through the html template, the loved melons dictionary
+    return render_template ("top-melons.html", loved_melons_dict=MOST_LOVED_MELONS)
+
 
 
 if __name__ == '__main__':
